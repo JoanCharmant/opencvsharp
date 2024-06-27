@@ -531,7 +531,14 @@ CVAPI(std::vector<cv::detail::ImageFeatures>*) vector_ImageFeatures_new1()
 {
     return new std::vector<cv::detail::ImageFeatures>;
 }
-
+CVAPI(std::vector<cv::detail::ImageFeatures>*) vector_ImageFeatures_new2(size_t size)
+{
+  return new std::vector<cv::detail::ImageFeatures>(size);
+}
+CVAPI(std::vector<cv::detail::ImageFeatures>*) vector_ImageFeatures_new3(cv::detail::ImageFeatures* data, size_t dataLength)
+{
+  return new std::vector<cv::detail::ImageFeatures>(data, data + dataLength);
+}
 CVAPI(size_t) vector_ImageFeatures_getSize(
     std::vector<cv::detail::ImageFeatures>* vector)
 {
@@ -568,6 +575,37 @@ CVAPI(void) vector_ImageFeatures_delete(std::vector<cv::detail::ImageFeatures>* 
 }
 
 #pragma endregion
+
+
+#pragma region cv::detail::MatchesInfo
+
+CVAPI(std::vector<cv::detail::MatchesInfo>*) vector_MatchesInfo_new1()
+{
+  return new std::vector<cv::detail::MatchesInfo>;
+}
+CVAPI(std::vector<cv::detail::MatchesInfo>*) vector_MatchesInfo_new2(size_t size)
+{
+  return new std::vector<cv::detail::MatchesInfo>(size);
+}
+CVAPI(std::vector<cv::detail::MatchesInfo>*) vector_MatchesInfo_new3(cv::detail::MatchesInfo* data, size_t dataLength)
+{
+  return new std::vector<cv::detail::MatchesInfo>(data, data + dataLength);
+}
+CVAPI(size_t) vector_MatchesInfo_getSize(std::vector<cv::detail::MatchesInfo>* vector)
+{
+  return vector->size();
+}
+CVAPI(cv::detail::MatchesInfo*) vector_MatchesInfo_getPointer(std::vector<cv::detail::MatchesInfo>* vector)
+{
+  return &(vector->at(0));
+}
+CVAPI(void) vector_MatchesInfo_delete(std::vector<cv::detail::MatchesInfo>* vector)
+{
+  delete vector;
+}
+
+#pragma endregion
+
 
 #pragma region cv::line_descriptor::KeyLine
 #if 0

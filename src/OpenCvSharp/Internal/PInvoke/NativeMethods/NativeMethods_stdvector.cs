@@ -312,6 +312,12 @@ static partial class NativeMethods
     public static extern IntPtr vector_ImageFeatures_new1();
 
     [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern IntPtr vector_ImageFeatures_new2(nuint size);
+
+    [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern IntPtr vector_ImageFeatures_new3([In] ImageFeatures[] data, nuint dataLength);
+
+    [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern nuint vector_ImageFeatures_getSize(IntPtr vector);
 
     [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -324,7 +330,32 @@ static partial class NativeMethods
     [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void vector_ImageFeatures_delete(IntPtr vector);
 
+  #endregion
+    #region cv::detail::MatchesInfo
+
+    [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern IntPtr vector_MatchesInfo_new1();
+
+    [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern IntPtr vector_MatchesInfo_new2(nuint size);
+
+    [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern IntPtr vector_MatchesInfo_new3([In] MatchesInfo[] data, nuint dataLength);
+
+    [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern nuint vector_MatchesInfo_getSize(IntPtr vector);
+
+    [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern IntPtr vector_MatchesInfo_getPointer(IntPtr vector);
+
+    [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void vector_MatchesInfo_getElements(IntPtr vector, [Out] WMatchesInfo[] dst);
+
+    [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void vector_MatchesInfo_delete(IntPtr vector);
+
     #endregion
+
     #region cv::line_descriptor::KeyLine
 #if false
         [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -342,7 +373,7 @@ static partial class NativeMethods
         [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void vector_KeyLine_delete(IntPtr vector);
 #endif
-    #endregion
+  #endregion
 
     #region vector<uchar>
     [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]

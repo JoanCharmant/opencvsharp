@@ -16,8 +16,21 @@ static partial class NativeMethods
   [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
   public static extern ExceptionStatus stitching_Estimator_apply(
       IntPtr obj,
-      WImageFeatures[] features, int featuresSize,
-      WMatchesInfo[] pairwiseMatches, int pairwiseMatchesSize,
+      IntPtr features,
+      IntPtr pairwiseMatches,
       IntPtr cameras,
       out bool ret);
+
+
+  // HomographyBasedEstimator
+
+  [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+  public static extern ExceptionStatus stitching_HomographyBasedEstimator_new(
+        bool isFocalsEstimated,
+        out IntPtr returnValue);
+
+  [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+  public static extern ExceptionStatus stitching_HomographyBasedEstimator_delete(IntPtr obj);
+
+
 }

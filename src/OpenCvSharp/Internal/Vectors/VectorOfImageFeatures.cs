@@ -13,7 +13,30 @@ public class VectorOfImageFeatures : DisposableCvObject, IStdVector<ImageFeature
     {
         ptr = NativeMethods.vector_ImageFeatures_new1();
     }
-        
+
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    /// <param name="size"></param>
+    public VectorOfImageFeatures(nuint size)
+    {
+        if (size < 0)
+            throw new ArgumentOutOfRangeException(nameof(size));
+        ptr = NativeMethods.vector_ImageFeatures_new2(size);
+    }
+
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    /// <param name="data"></param>
+    public VectorOfImageFeatures(IEnumerable<ImageFeatures> data)
+    {
+        if (data is null)
+            throw new ArgumentNullException(nameof(data));
+        var array = data.ToArray();
+        ptr = NativeMethods.vector_ImageFeatures_new3(array, (nuint)array.Length);
+    }
+
     /// <summary>
     /// Releases unmanaged resources
     /// </summary>

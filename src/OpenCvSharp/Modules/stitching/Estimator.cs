@@ -39,33 +39,24 @@ public abstract class Estimator : DisposableCvObject
 
         if (features is null)
             throw new ArgumentNullException(nameof(features));
-        var featuresArray = features.CastOrToArray();
-        if (featuresArray.Length == 0)
-          throw new ArgumentException("Empty features array", nameof(features));
-
         if (pairwiseMatches is null)
           throw new ArgumentNullException(nameof(pairwiseMatches));
-        var pairwiseMatchesArray = pairwiseMatches.CastOrToArray();
-        if (pairwiseMatchesArray.Length == 0)
-          throw new ArgumentException("Empty matches array", nameof(pairwiseMatches));
+    
+    using var featuresVec = new VectorOfImageFeatures(features);
+    using var pairwiseMatchesVec = new VectorOfMatchesInfo(pairwiseMatches);
+    using var camerasVec = new VectorOfCameraParams(cameras);
 
-        var wImageFeatures = new WImageFeatures[featuresArray.Length];
-        var wPairwiseMatches = new WMatchesInfo[pairwiseMatchesArray.Length];
-        using var camerasVec = new VectorOfCameraParams(cameras);
-        
-        NativeMethods.HandleException(
-            NativeMethods.stitching_Estimator_apply(
-                ptr,
-                wImageFeatures, wImageFeatures.Length,
-                wPairwiseMatches, wPairwiseMatches.Length,
-                camerasVec.CvPtr,
-                out var ret));
+    NativeMethods.HandleException(
+          NativeMethods.stitching_Estimator_apply(
+              ptr,
+              featuresVec.CvPtr,
+              pairwiseMatchesVec.CvPtr,
+              camerasVec.CvPtr,
+              out var ret));
 
-        ClearAndAddRange(cameras, camerasVec.ToArray());
-        
-        GC.KeepAlive(this);
-
-        return ret;
+      ClearAndAddRange(cameras, camerasVec.ToArray());
+      
+      return ret;
     }
 
     private static void ClearAndAddRange<T>(ICollection<T> list, IEnumerable<T> values)
