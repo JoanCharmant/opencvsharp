@@ -496,6 +496,35 @@ CVAPI(void) vector_DTrees_Split_delete(std::vector<cv::ml::DTrees::Split> *vecto
 
 #pragma endregion
 
+#pragma region cv::detail::CameraParams
+
+CVAPI(std::vector<cv::detail::CameraParams>*) vector_CameraParams_new1()
+{
+    return new std::vector<cv::detail::CameraParams>;
+}
+CVAPI(std::vector<cv::detail::CameraParams>*) vector_CameraParams_new2(size_t size)
+{
+    return new std::vector<cv::detail::CameraParams>(size);
+}
+CVAPI(std::vector<cv::detail::CameraParams>*) vector_CameraParams_new3(cv::detail::CameraParams* data, size_t dataLength)
+{
+    return new std::vector<cv::detail::CameraParams>(data, data + dataLength);
+}
+CVAPI(size_t) vector_CameraParams_getSize(std::vector<cv::detail::CameraParams>* vector)
+{
+    return vector->size();
+}
+CVAPI(cv::detail::CameraParams*) vector_CameraParams_getPointer(std::vector<cv::detail::CameraParams>* vector)
+{
+    return &(vector->at(0));
+}
+CVAPI(void) vector_CameraParams_delete(std::vector<cv::detail::CameraParams>* vector)
+{
+    delete vector;
+}
+
+#pragma endregion
+
 #pragma region cv::detail::ImageFeatures
 
 CVAPI(std::vector<cv::detail::ImageFeatures>*) vector_ImageFeatures_new1()

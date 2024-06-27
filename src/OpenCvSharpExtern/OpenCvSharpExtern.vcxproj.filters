@@ -378,6 +378,9 @@
     <ClInclude Include="imgproc_LineSegmentDetector.h">
       <Filter>Header Files\imgproc</Filter>
     </ClInclude>
+    <ClInclude Include="stitching_detail_MotionEstimators.h">
+      <Filter>Header Files\stitching</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">

@@ -328,6 +328,7 @@ copy "$(SolutionDir)opencv_files\opencv4100_win_x64\x64\vc17\bin\opencv_videoio_
     <ClInclude Include="std_string.h" />
     <ClInclude Include="std_vector_nesting.h" />
     <ClInclude Include="std_vector_primitive.h" />
+    <ClInclude Include="stitching_detail_MotionEstimators.h" />
     <ClInclude Include="text.h" />
     <ClInclude Include="text_TextDetector.h" />
     <ClInclude Include="tracking.h" />

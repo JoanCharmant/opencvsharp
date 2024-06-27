@@ -40,10 +40,6 @@ namespace OpenCvSharp
         public class Blender
         {
         }
-
-        public class CameraParams
-        {
-        }
     }
 
     /// <summary>

@@ -234,7 +234,7 @@ static partial class NativeMethods
     [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void vector_KeyPoint_delete(IntPtr vector);
     #endregion
-    #region cv::KeyPoint
+    #region cv::DMatch
     [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern IntPtr vector_DMatch_new1();
     [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -289,6 +289,22 @@ static partial class NativeMethods
     [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void vector_DTrees_Split_delete(IntPtr vector);
 
+    #endregion
+    #region cv::detail::CameraParams
+    [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern IntPtr vector_CameraParams_new1();
+    [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern IntPtr vector_CameraParams_new2(nuint size);
+    [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern IntPtr vector_CameraParams_new3([In] CameraParams[] data, nuint dataLength);
+    [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern nuint vector_CameraParams_getSize(IntPtr vector);
+    [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern IntPtr vector_CameraParams_getPointer(IntPtr vector);
+    [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void vector_CameraParams_getElements(IntPtr vector, [Out] WCameraParams[] dst);
+    [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void vector_CameraParams_delete(IntPtr vector);
     #endregion
     #region cv::detail::ImageFeatures
 
