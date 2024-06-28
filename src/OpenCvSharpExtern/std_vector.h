@@ -506,10 +506,6 @@ CVAPI(std::vector<cv::detail::CameraParams>*) vector_CameraParams_new2(size_t si
 {
     return new std::vector<cv::detail::CameraParams>(size);
 }
-CVAPI(std::vector<cv::detail::CameraParams>*) vector_CameraParams_new3(cv::detail::CameraParams* data, size_t dataLength)
-{
-    return new std::vector<cv::detail::CameraParams>(data, data + dataLength);
-}
 CVAPI(size_t) vector_CameraParams_getSize(std::vector<cv::detail::CameraParams>* vector)
 {
     return vector->size();
@@ -534,10 +530,6 @@ CVAPI(std::vector<cv::detail::ImageFeatures>*) vector_ImageFeatures_new1()
 CVAPI(std::vector<cv::detail::ImageFeatures>*) vector_ImageFeatures_new2(size_t size)
 {
   return new std::vector<cv::detail::ImageFeatures>(size);
-}
-CVAPI(std::vector<cv::detail::ImageFeatures>*) vector_ImageFeatures_new3(cv::detail::ImageFeatures* data, size_t dataLength)
-{
-  return new std::vector<cv::detail::ImageFeatures>(data, data + dataLength);
 }
 CVAPI(size_t) vector_ImageFeatures_getSize(
     std::vector<cv::detail::ImageFeatures>* vector)
@@ -586,10 +578,6 @@ CVAPI(std::vector<cv::detail::MatchesInfo>*) vector_MatchesInfo_new1()
 CVAPI(std::vector<cv::detail::MatchesInfo>*) vector_MatchesInfo_new2(size_t size)
 {
   return new std::vector<cv::detail::MatchesInfo>(size);
-}
-CVAPI(std::vector<cv::detail::MatchesInfo>*) vector_MatchesInfo_new3(cv::detail::MatchesInfo* data, size_t dataLength)
-{
-  return new std::vector<cv::detail::MatchesInfo>(data, data + dataLength);
 }
 CVAPI(size_t) vector_MatchesInfo_getSize(std::vector<cv::detail::MatchesInfo>* vector)
 {

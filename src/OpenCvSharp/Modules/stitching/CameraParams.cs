@@ -79,6 +79,7 @@ public sealed class CameraParams : IDisposable
         T = other.T;
     }
     
+    // Allocate a new Mat on every call.
     // public Mat K()
     // {
             // Mat_<double> k = Mat::eye(3, 3, CV_64F);

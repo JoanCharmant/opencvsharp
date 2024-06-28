@@ -184,14 +184,29 @@ extern "C"
     /** @brief Structure containing image keypoints and descriptors. */
     struct CV_EXPORTS_W_SIMPLE detail_MatchesInfo
     {
-      int src_img_idx;
-      int dst_img_idx;
-      std::vector<cv::DMatch>* matches;
-      std::vector<uchar>* inliers_mask;
-      int num_inliers;
-      cv::Mat* H;
-      double confidence;
+        int src_img_idx;
+        int dst_img_idx;
+        std::vector<cv::DMatch>* matches;
+        std::vector<uchar>* inliers_mask;
+        int num_inliers;
+        cv::Mat* H;
+        double confidence;
     };
+
+    /** @brief Describes camera parameters.
+        @note Translation is assumed to be zero during the whole stitching pipeline. :
+    */
+    struct CV_EXPORTS_W_SIMPLE detail_CameraParams
+    {
+        double focal;   // Focal length
+        double aspect;  // Aspect ratio
+        double ppx;     // Principal point X
+        double ppy;     // Principal point Y
+        cv::Mat* R;     // Rotation
+        cv::Mat* t;     // Translation
+    };
+
+
     /*
     struct line_descriptor_KeyLine
     {

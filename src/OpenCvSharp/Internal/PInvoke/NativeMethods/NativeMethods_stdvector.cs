@@ -296,8 +296,6 @@ static partial class NativeMethods
     [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern IntPtr vector_CameraParams_new2(nuint size);
     [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern IntPtr vector_CameraParams_new3([In] CameraParams[] data, nuint dataLength);
-    [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern nuint vector_CameraParams_getSize(IntPtr vector);
     [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern IntPtr vector_CameraParams_getPointer(IntPtr vector);
@@ -313,9 +311,6 @@ static partial class NativeMethods
 
     [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern IntPtr vector_ImageFeatures_new2(nuint size);
-
-    [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern IntPtr vector_ImageFeatures_new3([In] ImageFeatures[] data, nuint dataLength);
 
     [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern nuint vector_ImageFeatures_getSize(IntPtr vector);
@@ -338,9 +333,6 @@ static partial class NativeMethods
 
     [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern IntPtr vector_MatchesInfo_new2(nuint size);
-
-    [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern IntPtr vector_MatchesInfo_new3([In] MatchesInfo[] data, nuint dataLength);
 
     [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern nuint vector_MatchesInfo_getSize(IntPtr vector);

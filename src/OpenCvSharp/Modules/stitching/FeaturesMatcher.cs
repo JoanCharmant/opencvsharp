@@ -106,7 +106,7 @@ public abstract class FeaturesMatcher : DisposableCvObject
                     throw new ArgumentException("features contain null descriptor mat", nameof(features));
                 featuresArray[i].Descriptors.ThrowIfDisposed();
 
-                keypointVecs[i] = new VectorOfKeyPoint();
+                keypointVecs[i] = new VectorOfKeyPoint(featuresArray[i].Keypoints);
                 wImageFeatures[i] = new WImageFeatures
                 {
                     ImgIdx = featuresArray[i].ImgIdx,

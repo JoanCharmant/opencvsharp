@@ -26,18 +26,6 @@ public class VectorOfImageFeatures : DisposableCvObject, IStdVector<ImageFeature
     }
 
     /// <summary>
-    /// Constructor
-    /// </summary>
-    /// <param name="data"></param>
-    public VectorOfImageFeatures(IEnumerable<ImageFeatures> data)
-    {
-        if (data is null)
-            throw new ArgumentNullException(nameof(data));
-        var array = data.ToArray();
-        ptr = NativeMethods.vector_ImageFeatures_new3(array, (nuint)array.Length);
-    }
-
-    /// <summary>
     /// Releases unmanaged resources
     /// </summary>
     protected override void DisposeUnmanaged()

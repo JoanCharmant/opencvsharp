@@ -27,18 +27,6 @@ public class VectorOfMatchesInfo : DisposableCvObject, IStdVector<MatchesInfo>
   }
 
   /// <summary>
-  /// Constructor
-  /// </summary>
-  /// <param name="data"></param>
-  public VectorOfMatchesInfo(IEnumerable<MatchesInfo> data)
-  {
-    if (data is null)
-      throw new ArgumentNullException(nameof(data));
-    var array = data.ToArray();
-    ptr = NativeMethods.vector_MatchesInfo_new3(array, (nuint)array.Length);
-  }
-
-  /// <summary>
   /// Releases unmanaged resources
   /// </summary>
   protected override void DisposeUnmanaged()

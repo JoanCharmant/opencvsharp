@@ -16,9 +16,9 @@ static partial class NativeMethods
   [Pure, DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
   public static extern ExceptionStatus stitching_Estimator_apply(
       IntPtr obj,
-      IntPtr features,
-      IntPtr pairwiseMatches,
-      IntPtr cameras,
+      WImageFeatures[] features, int featuresSize,
+      WMatchesInfo[] matches, int matchesSize,
+      WCameraParams[] cameras, int camerasSize,
       out bool ret);
 
 

@@ -27,18 +27,6 @@ public class VectorOfCameraParams : DisposableCvObject, IStdVector<CameraParams>
   }
 
   /// <summary>
-  /// Constructor
-  /// </summary>
-  /// <param name="data"></param>
-  public VectorOfCameraParams(IEnumerable<CameraParams> data)
-  {
-    if (data is null)
-      throw new ArgumentNullException(nameof(data));
-    var array = data.ToArray();
-    ptr = NativeMethods.vector_CameraParams_new3(array, (nuint)array.Length);
-  }
-
-  /// <summary>
   /// Releases unmanaged resources
   /// </summary>
   protected override void DisposeUnmanaged()
