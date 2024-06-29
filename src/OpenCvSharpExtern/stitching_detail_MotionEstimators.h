@@ -27,7 +27,7 @@ CVAPI(ExceptionStatus) stitching_Estimator_apply(
             *features[i].keypoints,
             cv::UMat() };
         features[i].descriptors->copyTo(featuresCpp.descriptors);
-        featuresVec.push_back(featuresCpp);
+        featuresVec[i] = featuresCpp;
     }
 
     // Convert from detail_MatchesInfo* to std::vector<cv::detail::MatchesInfo>
@@ -44,7 +44,7 @@ CVAPI(ExceptionStatus) stitching_Estimator_apply(
         pairwise_matches[i].H->copyTo(matchesCpp.H);
         matchesCpp.confidence = pairwise_matches[i].confidence;
 
-        matchesVec.push_back(matchesCpp);
+        matchesVec[i] = matchesCpp;
     }
 
     // Convert from detail_CameraParams* to std::vector<cv::detail::CameraParams>
@@ -61,7 +61,7 @@ CVAPI(ExceptionStatus) stitching_Estimator_apply(
         camerasCpp.t = cv::Mat();
         cameras[i].t->copyTo(camerasCpp.t);
 
-        camerasVec.push_back(camerasCpp);
+        camerasVec[i] = camerasCpp;
     }
 
     *out_ret = (*obj)(featuresVec, matchesVec, camerasVec);
