@@ -67,11 +67,16 @@ CVAPI(ExceptionStatus) stitching_Estimator_apply(
     *out_ret = (*obj)(featuresVec, matchesVec, camerasVec);
 
     // Copy results back.
-    // into detail_CameraParams? 
-
-
-
-
+    // Normally only focal, R and t are changed by opencv.
+    for (int i = 0; i < cameras_size; i++)
+    {
+        cameras[i].focal = camerasVec[i].focal;
+        cameras[i].aspect = camerasVec[i].aspect;
+        cameras[i].ppx = camerasVec[i].ppx;
+        cameras[i].ppy = camerasVec[i].ppy;
+        camerasVec[i].R.copyTo(*cameras[i].R);
+        camerasVec[i].t.copyTo(*cameras[i].t);
+    }
 
     END_WRAP
 }

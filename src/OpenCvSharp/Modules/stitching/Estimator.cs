@@ -119,7 +119,18 @@ public abstract class Estimator : DisposableCvObject
                     out var ret
                 ));
 
-            //ClearAndAddRange(cameras, camerasVec.ToArray());
+            // Convert back from WCameraParams[] to IList<CameraParams>.
+            for (int i = 0; i < cameraArrayLength; i++)
+            {
+                cameras[i] = new CameraParams(
+                    wCameras[i].Focal,
+                    wCameras[i].Aspect,
+                    wCameras[i].PpX,
+                    wCameras[i].PpY,
+                    new Mat(wCameras[i].R),
+                    new Mat(wCameras[i].T)
+                );
+            }
 
             return ret;
         }
@@ -139,14 +150,5 @@ public abstract class Estimator : DisposableCvObject
             }
             GC.KeepAlive(this);
         }
-    }
-
-    private static void ClearAndAddRange<T>(ICollection<T> list, IEnumerable<T> values)
-    {
-      list.Clear();
-      foreach (var t in values)
-      {
-        list.Add(t);
-      }
     }
 }
